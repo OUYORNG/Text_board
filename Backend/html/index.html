@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-orange-500 m-2 h-80 w-80">
+      <marquee behavior="scroll" direction="right" scrollamount="50"
+        >The text is scrolling</marquee
+      >
+
+      <input
+        type="number"
+        id="scrollAmountInput"
+        placeholder="Enter scroll amount"
+      />
+      <button onclick="changeScrollAmount()">Change Scroll Amount</button>
+      <marquee
+        id="myMarquee"
+        behavior="scroll"
+        direction="right"
+        scrollamount="50"
+        >The text is scrolling</marquee
+      >
+    </div>
+  </body>
+  <script>
+    function changeScrollAmount() {
+      var scrollAmountInput =
+        document.getElementById("scrollAmountInput").value;
+      var myMarquee = document.getElementById("myMarquee");
+      myMarquee.setAttribute("scrollamount", scrollAmountInput);
+    }
+  </script>
+</html>

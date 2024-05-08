@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn about REM EM VH VW in css</title>
+    <style>
+      /*  Tutorial REM, EM, VW, VH YouTube - https://youtu.be/6uJPTM0AaFc */
+
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      #size {
+        position: absolute;
+
+        /*  positioning screen size below our main text */
+        top: 35%;
+        left: 50%;
+
+        transform: translate(-50%);
+
+        color: red;
+        font-size: 35px;
+      }
+
+      /*👇👇 Experiment Here 👇👇*/
+
+      html {
+        font-size: 16px;
+      }
+
+      .text {
+        font-size: 3rem;
+      }
+
+      .box {
+        width: 150px;
+        height: 50%;
+        background-color: skyblue;
+        display: grid;
+        place-content: center;
+        font-size: 25px;
+
+        display: none;
+      }
+
+      @media (max-width: 1400px) {
+        html {
+          font-size: 25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        html {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--  Tutorial REM, EM, VW, VH YouTube - https://youtu.be/6uJPTM0AaFc -->
+
+    <div class="box" id="box"></div>
+
+    <div class="text" id="font-size">Current Font Size :</div>
+
+    <!-- Calculates Screen width & Height -->
+
+    <div id="size"></div>
+
+    <script>
+      // Tutorial REM, EM, VW, VH YouTube - https://youtu.be/6uJPTM0AaFc
+
+      let size = document.getElementById("size"),
+        font_size = document.getElementById("font-size"),
+        box = document.getElementById("box");
+
+      // 'screen' is name 👇 of a function
+      window.onresize = screen;
+      window.onload = screen;
+
+      // Function named 'screen' 👇
+
+      function screen() {
+        Width = window.innerWidth;
+        Height = window.innerHeight;
+        Box_width = box.clientWidth;
+        Box_height = box.clientHeight;
+        f_size = window.getComputedStyle(font_size).fontSize;
+
+        // Screen Size (Width & height)
+
+        size.innerHTML = "Width : " + Width + " px";
+        // size.innerHTML = "Height : " + Height + " px";
+
+        // Display Font size
+        font_size.innerHTML = `f-size : ` + f_size;
+
+        // Box Width & height
+
+        // box.innerHTML = "Width : " + Box_width;
+        // box.innerHTML = "Height : " + Box_height;
+      }
+    </script>
+  </body>
+</html>
