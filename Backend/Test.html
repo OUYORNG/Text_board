@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toggle Full Screen</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
+  <input type="text" id="input1" placeholder="Input 1">
+  <input type="text" id="input2" placeholder="Input 2">
+  <div id="combinedText"></div>
+  
+  <script>
+    // Get references to the input elements and the div for combined text
+const input1 = document.getElementById('input1');
+const input2 = document.getElementById('input2');
+const combinedTextDiv = document.getElementById('combinedText');
 
-<div id="fullscreenDiv">
-  <img src="IMG/Display Texture.jpg" alt="Example Image">
-</div>
-
-<button onclick="toggleFullScreen()">Toggle Full Screen</button>
-
-<script >
-  let fullscreenDiv = document.getElementById('fullscreenDiv');
-
-function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-    fullscreenDiv.requestFullscreen();
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    }
-  }
+// Function to update the combined text
+function updateCombinedText() {
+    const text1 = input1.value;
+    const text2 = input2.value;
+    combinedTextDiv.textContent = `Input 1: ${text1}\nInput 2: ${text2}`;
 }
 
-</script>
+// Add input event listeners to both input fields
+input1.addEventListener('input', updateCombinedText);
+input2.addEventListener('input', updateCombinedText);
 
+// Initial update
+updateCombinedText();
+
+  </script>
 </body>
 </html>
