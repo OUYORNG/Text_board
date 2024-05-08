@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div>
+      <div class="bg-orange-500 m-2">
+        <marquee
+          id="scroll-amount"
+          behavior="scroll"
+          direction="right"
+          scrollamount="20"
+          >The text is scrolling</marquee
+        >
+      </div>
+      <div class="box p-4 bg-green-500 flex gap-5 items-center rounded-full">
+        <div class="slider">
+          <input type="range" min="0" max="100" value="5" />
+        </div>
+        <div class="value">100</div>
+      </div>
+    </div>
+  </body>
+  <script src="Js\Index.js"></script>
+</html>

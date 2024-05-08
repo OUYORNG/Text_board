@@ -3,15 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Text-Board</title>
+    <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="bg-orange-500 m-2 h-80 w-80">
-      <marquee behavior="scroll" direction="right" scrollamount="50"
-        >The text is scrolling</marquee
-      >
-
+  <body class="bg-blue-500 m-5">
+    <div class="bg-green-500">
       <input
         type="number"
         id="scrollAmountInput"
@@ -26,6 +22,14 @@
         >The text is scrolling</marquee
       >
     </div>
+
+    <script>
+      function changeScrollAmount() {
+        var scrollAmountInput =
+          document.getElementById("scrollAmountInput").value;
+        var myMarquee = document.getElementById("myMarquee");
+        myMarquee.setAttribute("scrollamount", scrollAmountInput);
+      }
+    </script>
   </body>
-  <script src="Users\lymak\OneDrive - itc.edu.kh\Documents\Web_design\text-board-project\Text_board\backend\Js\Index.js"></script>
 </html>
