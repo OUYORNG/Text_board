@@ -3,27 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Slider Example</title>
   </head>
   <body>
-    <div
-      class="box p-4 bg-green-500 flex gap-5 justify-between absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center rounded-full"
-    >
-      <div class="slider">
-        <input type="range" min="0" max="100" value="20" />
-      </div>
-      <div id="value" class="value">100</div>
-    </div>
+    <input type="range" id="slider" min="0" max="100" value="50" />
+    <span id="value"></span>
 
     <script>
-      const slider = document.querySelector("input");
-      const value = document.querySelector(".value");
+      document.addEventListener("DOMContentLoaded", input_value);
+      function input_value() {
+        const slider = document.getElementById("slider");
+        const value = document.getElementById("value");
 
-      value.textContent = slider.value;
-      slider.oninput = function () {
-        value.textContent = this.value;
-      };
+        value.textContent = slider.value;
+        slider.addEventListener("input", equaltext);
+
+        function equaltext() {
+          value.textContent = this.value;
+        }
+      }
     </script>
   </body>
 </html>
