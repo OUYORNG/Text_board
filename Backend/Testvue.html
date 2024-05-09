@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/vue@3" ></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Receiver Page</title>
 </head>
 <body>
-<div id="app" class="">
-    <input type="text" v-model="greeting">
-    <div class="" >
-        {{ greeting}}
-    </div>
-</div>
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                    greeting: 'Hello Vue 3!'
-                }
-            },
+    <h1>Data Received</h1>
+    <div id="dataDisplay"></div>
 
-        }).mount('#app');
+    <script>
+        // Retrieve data from local storage
+        var storedData = localStorage.getItem('dataToSend');
+
+        if (storedData) {
+            // Parse received JSON data
+            var receivedData = JSON.parse(storedData);
+
+            // Display received data
+            var displayElement = document.getElementById('dataDisplay');
+            displayElement.innerHTML = '<pre>' + JSON.stringify(receivedData, null, 2) + '</pre>';
+
+            // Clear data from local storage after retrieving
+            localStorage.removeItem('dataToSend');
+        } else {
+            // Display a message if no data is found
+            document.getElementById('dataDisplay').innerText = 'No data received.';
+        }
     </script>
-    
 </body>
 </html>

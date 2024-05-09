@@ -8,6 +8,17 @@
     <script src="https://unpkg.com/vue@3" ></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+    <style>
+        .blink {
+            animation: Blink;
+        }
+
+        @keyframes blinker {
+            50% {
+            opacity: 0;
+            }
+        }
+</style>
 <body class="m-2 p-2 bg-gray-300 h-full">
     <!-- Navigation Bar -->
     <div class="navbar bg-white p-3 rounded-xl flex justify-between ">
@@ -25,7 +36,7 @@
     <div class="display flex bg-black  justify-center items-center rounded-md mt-2">
         <img class="rounded-lg opacity-50 flex-grow relative" src="IMG/Display Texture.jpg" alt="">
         <div​ class="absolute flex">
-            <marquee  class="flex-grow Text2Display text-white font-bold text-[clamp(8px,8vw,100px)]" behavior="" scrollamount="0" direction="">Welcome to Text board</marquee>
+            <marquee style="color:white"  class="flex-grow Text2Display font-  font-bold text-[clamp(8px,8vw,100px)]" behavior="" scrollamount="0" direction="">Welcome to Text board</marquee>
         </div>
     </div>
 
@@ -43,20 +54,32 @@
             <div class="input flex mt-3 gap-2">
                 <div class="flex flex-grow-0 items-center font-bold ">Device 1</div>
                 <input type="text" class="M2input1 flex-grow rounded-md h-[40px] p-4 ">
-                <a class="flex items-center" href="Mode/M2input1.html"><svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg></a>
+                <!-- <a class="flex items-center" href="Mode/M2input1.html"><svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg></a> -->
             </div>
             <div class="input flex mt-2 gap-2">
                 <div class="flex flex-grow-0 items-center font-bold ">Device 2</div>
                 <input type="text" class="M2input2 flex-grow rounded-md h-[40px] p-4 ">
-                <a class="flex items-center" href=""><svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg></a>
-                <a href="" class="flex items-center">Copy Link</a>
+                <!-- <a class="flex items-center" href=""><svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg></a>
+                <a href="" class="flex items-center">Copy Link</a> -->
+            </div>
+            <div class="mt-3 flex justify-end">
+                <button type="button"  class="GenerateCodeBtn btn btn-primary">Generate</button>
+            </div>
+            <div class="codeGenerated gap-4 hidden">
+                <div class="code1">Device 1: 1423</div>
+                <div class="code2">Device 2: 1424</div>
+
             </div>
         </div>
 
         <!-- More Function and Style -->
         <div>
             <div class="mt-3 font-bold text-xl mb-3">More Functions</div>
-            <div class="font flex justify-between ">
+            <div class="enterMD flex gap-3">
+                <div>Enter code:</div>
+                <div><input class="pl-2 InputCode" type="search" placeholder="Device code"></div>
+            </div>
+            <div class="font flex justify-between mt-4 ">
                 <div>Multi Devices</div>
                 <div class=" w-[130px] flex justify-evenly">
                     <select class="w-[130px]" name="cars" id="Font">
@@ -96,15 +119,15 @@
                 <div><input class="w-[130px]" type="range" min="0" max="50"></div>
             </div>
             <div class="scrollBlink mt-4 flex justify-between">
-                <div>Scroll Blink</div>
+                <div>Blinking Speed</div>
                 <div><input class="w-[130px]" type="range" min="0" max="50"></div>
             </div>
             <div class="blinkBtn mt-4 flex justify-between">
-                <div>Scroll Speed</div>
+                <div>Blinking</div>
                 <div class="flex w-[130px] justify-between">
                     <div>Off</div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <input class="h-5  form-check-input BlinkOnOff" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                         </div>
                     <div>On</div>
@@ -115,7 +138,7 @@
                 <div class="flex w-[130px] justify-between">
                     <div>Off</div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <input class="h-5  form-check-input KeepScreenON" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                         </div>
                     <div>On</div>
@@ -128,9 +151,9 @@
             <div class="mt-3 font-bold text-xl mb-3">Font Setting</div>
             <div class="font flex justify-between">
                 <div>Font</div>
-                <select class="w-[130px]" name="cars" id="Font">
-                    <option value="">1</option>
+                <select class="w-[130px] ChooseFont" name="cars" id="Font">
                     <option value="">2</option>
+                    <option value="Tay-Sequoia">Taylor - Sequoia</option>
                     <option value="">3</option>
                     <option value="4">4</option>
                   </select>
@@ -139,7 +162,7 @@
             <div class="font flex justify-between mt-4">
                 <div class="flex items-center ">Font Size</div>
                 <div class=" w-[130px] flex justify-evenly">
-                    <button class="decrease flex justify-center flex-grow hover:bg-red-300 rounded-3xl"><svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5 11V13H19V11H5Z"></path></svg></button>
+                    <button class="Decrease flex justify-center flex-grow hover:bg-red-300 rounded-3xl"><svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5 11V13H19V11H5Z"></path></svg></button>
                     <button class="Increase flex justify-center flex-grow hover:bg-blue-300 rounded-3xl"><svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg></button>
                 </div>
             </div>
@@ -147,7 +170,7 @@
             <div class="font flex justify-between mt-4">
                 <div>Font Color</div>
                 <div class=" w-[130px] flex justify-evenly">
-                    <input class="txt-color flex flex-grow" type="color" id="colorInput" value="#000000" onchange="changeColor(this.value)">
+                    <input class="txt_color flex flex-grow" type="color" id="colorInput" value="#000000">
                 </div>
             </div>
 
