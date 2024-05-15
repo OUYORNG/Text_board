@@ -19,12 +19,10 @@ const slider = document.getElementById("slider");
 const value = document.getElementById("value");
 const scrollAmount = document.getElementById("scroll-amount");
 
-console.log(slider.oninput);
-
 value.textContent = slider.value;
 slider.oninput = function () {
   value.textContent = this.value;
-  console.log(this.value);
+  //console.log(this.value);
   scrollAmount.setAttribute("scrollamount", this.value);
 };
 

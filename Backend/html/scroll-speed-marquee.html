@@ -15,7 +15,7 @@
           alt="display texture"
         />
         <div class="absolute text-white text-4xl font-bold w-full">
-          <marquee id="marquee" behavior="scroll" scrollAmount="50"
+          <marquee id="marquee" behavior="scroll"
             ><div id="values" class="flex justify-center items-center">
               Welcome to textboard
             </div></marquee
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="flex justify-center p-2">
-        <input id="range-scroll" type="range" min="0" max="10" value="50" />
+        <input id="range-scroll" type="range" min="0" max="100" value="100" />
         <span id="value-range-scroll"></span>
       </div>
       <script>
@@ -32,17 +32,11 @@
           document.getElementById("value-range-scroll");
         const marquee = document.getElementById("marquee");
 
-        // value_range_scroll.textContent = range_scroll.value;
-        // range_scroll.oninput = function () {
-        //   range_scroll.textContent = this.value;
-        //   scrollAmount.setAttribute("scrollamount", this.value);
-        // };
-
         value_range_scroll.textContent = range_scroll.value;
-        slider.oninput = function () {
-          value.textContent = this.value;
+        range_scroll.oninput = function () {
+          value_range_scroll.textContent = this.value;
           console.log(this.value);
-          scrollAmount.setAttribute("scrollamount", this.value);
+          marquee.setAttribute("scrollamount", this.value);
         };
       </script>
     </div>
