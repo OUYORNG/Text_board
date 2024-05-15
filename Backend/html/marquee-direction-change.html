@@ -22,20 +22,36 @@
           >
         </div>
       </div>
-      <div>
-        <buttton id="left" class="hover:bg-red-600">&lArr;</buttton>
-        <buttton id="puase" class="hover:bg-red-600">&#11035;</buttton>
-        <buttton id="right" class="hover:bg-red-600">&rArr;</buttton>
+      <div class="flex flex-row justify-center">
+        <buttton id="left" class="hover:bg-red-600 p-2 bg-green-600"
+          >&lArr;</buttton
+        >
+        <buttton id="puase" class="hover:bg-red-600 p-2 bg-gray-600"
+          >&#11035;</buttton
+        >
+        <buttton id="right" class="hover:bg-red-600 p-2 bg-green-600"
+          >&rArr;</buttton
+        >
       </div>
     </div>
 
     <script>
+      const left = document.getElementById("left");
+      const right = document.getElementById("right");
       const toggleButton = document.getElementById("puase");
       const marquee = document.querySelector(".marquee");
       let isRunning = true;
 
+      left.addEventListener("click", directionLeft);
+      right.addEventListener("click", directionRight);
       toggleButton.addEventListener("click", toggleMarquee);
 
+      function directionLeft() {
+        marquee.setAttribute("direction", "left");
+      }
+      function directionRight() {
+        marquee.setAttribute("direction", "right");
+      }
       function toggleMarquee() {
         if (isRunning) {
           marquee.stop();

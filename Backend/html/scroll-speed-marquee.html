@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col gap-4 bg-orange-500">
+      <div class="bg-blue-500 flex justify-center items-center">
+        <img
+          class="opacity-50 relative"
+          src="../images/display-texture.jpg"
+          alt="display texture"
+        />
+        <div class="absolute text-white text-4xl font-bold w-full">
+          <marquee class="marquee" behavior="scroll" scrollAmount="50"
+            ><div id="values" class="flex justify-center items-center">
+              Welcome to textboard
+            </div></marquee
+          >
+        </div>
+      </div>
+      <div class="flex justify-center p-2">
+        <input id="range-scroll" type="range" min="0" max="10" value="50" />
+        <span id="value-range-scroll"></span>
+      </div>
+      <script>
+        const range_scroll = document.getElementById("range-scroll");
+        const value_range_scroll =
+          document.getElementById("value-range-scroll");
+        const marquee = document.querySelector(".marquee");
+
+        value_range_scroll.textContent = range_scroll.value;
+        range_scroll.oninput = function () {
+          range_scroll.textContent = this.value;
+        };
+      </script>
+    </div>
+  </body>
+</html>
