@@ -9,11 +9,7 @@
   <body>
     <div>
       <div class="bg-orange-500 m-2">
-        <marquee
-          id="scroll-amount"
-          behavior="scroll"
-          direction="left"
-          scrollamount="20"
+        <marquee id="scroll-amount" behavior="scroll" direction="left"
           >The text is scrolling</marquee
         >
       </div>
@@ -24,7 +20,11 @@
       <div>
         <input id="textInput" type="text" placeholder="input text" />
       </div>
+      <button id="right">right</button>
+      <button id="left">left</button>
     </div>
   </body>
-  <script src="Js\Index.js"></script>
+  <script src="../Js/Index.js">
+    window.onscroll = function(){myfunction()};
+  </script>
 </html>

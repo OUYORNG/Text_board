@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col gap-4 bg-orange-500">
+      <div class="bg-blue-500 flex justify-center items-center">
+        <img
+          class="opacity-50 relative"
+          src="../images/display-texture.jpg"
+          alt="display texture"
+        />
+        <div class="absolute text-white text-4xl font-bold w-full">
+          <marquee class="marquee" behavior="scroll" scrollAmount="50"
+            ><div id="values" class="flex justify-center items-center">
+              Welcome to textboard
+            </div></marquee
+          >
+        </div>
+      </div>
+      <div>
+        <buttton id="left" class="hover:bg-red-600">&lArr;</buttton>
+        <buttton id="puase" class="hover:bg-red-600">&#11035;</buttton>
+        <buttton id="right" class="hover:bg-red-600">&rArr;</buttton>
+      </div>
+    </div>
+
+    <script>
+      const toggleButton = document.getElementById("puase");
+      const marquee = document.querySelector(".marquee");
+      let isRunning = true;
+
+      toggleButton.addEventListener("click", toggleMarquee);
+
+      function toggleMarquee() {
+        if (isRunning) {
+          marquee.stop();
+          marquee.style.flex = "justify-center";
+          isRunning = false;
+          toggleButton.textContent = "Start";
+        } else {
+          marquee.start();
+          isRunning = true;
+          toggleButton.textContent = "Stop";
+        }
+      }
+    </script>
+  </body>
+</html>

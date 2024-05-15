@@ -28,6 +28,20 @@ slider.oninput = function () {
   scrollAmount.setAttribute("scrollamount", this.value);
 };
 
+// directon marquee
+const btnright = document.getElementById("right");
+const btnleft = document.getElementById("left");
+
+btnright.addEventListener("click", function () {
+  console.log("hi");
+  scrollAmount.setAttribute("direction", "right");
+});
+
+btnleft.addEventListener("click", function () {
+  console.log("hi");
+  scrollAmount.setAttribute("direction", "left");
+});
+
 // Text input
 // function updateMarquee() {
 //   const textInput = document.getElementById("textInput").value;
