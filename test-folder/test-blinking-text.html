@@ -1,73 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blinking Text</title>
     <style>
-        #blinkingText {
-            font-size: 24px;
-            display: inline-block;
-        }
+      #blinkingText {
+        font-size: 24px;
+        display: inline-block;
+      }
     </style>
-</head>
-<body>
-<marquee behavior="" direction="">
-  <p id="blinkingText">This is a blinking text</p><br>
-</marquee>
+  </head>
+  <body>
+    <!-- // create A Crolling Text by using marquee -->
+    <div>
+      <marquee behavior="" direction="">
+        <p id="blinkingText">This is a blinking text</p>
+        <br />
+      </marquee>
+    </div>
 
-<button id="toggleButton">Start Blinking</button>
-<br>
-<label for="speedRange">Blink Speed:</label>
-<input type="range" id="speedRange" min="0" max="9" step="1" value="5">
-<span id="speedValue">500ms</span>
+    <!-- // create ToggleButton to control the blink -->
+    <button id="toggleButton">Start Blinking</button>
+    <br />
+    <!-- // create Label to input the range of slider -->
+    <label for="speedRange">Blink Speed:</label>
+    <!-- // create A range with the set value of the slider from 0-9
+         // min= 0 cannot go below 0
+         // max= 9 cannot go beyond 9
+         // step= 1 move from min to max
+         // value= 5 the speed will start at 5 -->
+    <input type="range" id="speedRange" min="0" max="9" step="1" value="5" />
+    <span id="speedValue">500ms</span>
 
-<script>
-let isBlinking = false;
-let blinkInterval;
-let blinkSpeed = 500;
+    <script>
+      // boolean to check whether the text is blink or not
+      let isBlinking = false;
+      // declear variable
+      let blinkInterval;
+      // blink speed set is 500 ms
+      let blinkSpeed = 500;
 
-const speedOptions = [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
+      // array of possible blink speed
+      const speedOptions = [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
 
-function updateSpeed() {
-    const speedRange = document.getElementById('speedRange');
-    blinkSpeed = speedOptions[speedRange.value];
-    document.getElementById('speedValue').textContent = blinkSpeed + 'ms';
+      function updateSpeed() {
+        // gets the range slider by ID
+        // speedRang reference to Input rage crolling
+        const speedRange = document.getElementById("speedRange");
+        // update the value base on the value of speedRange from 0-9
+        // value between 0-9 pair the value in array speedOption[]
+        // blinkSpeed updated with new speed
+        blinkSpeed = speedOptions[speedRange.value];
+        // update the text value where id= speedValue
+        document.getElementById("speedValue").textContent = blinkSpeed + "ms";
+        // if the isBlinking is true
+        if (isBlinking) {
+          // stop the current blink using clearinterval
+          // ID store in the blinkInterval
+          clearInterval(blinkInterval);
+          // start new interval with update blinkspeed
+          startBlinking();
+        }
+      }
 
-    if (isBlinking) {
-        clearInterval(blinkInterval);
-        startBlinking();
-    }
-}
+      function startBlinking() {
+        // point t0 the text in <> by ID = blinkingText
+        // textElement in reference to <P> blink
+        const textElement = document.getElementById("blinkingText");
+        // set the timer of visibility of the text (blinkSpeed) 
+        blinkInterval = setInterval(() => {
+            // toggle the visibility of the text
+          // if the text is visible then make it hidden 
+          textElement.style.visibility =
+            textElement.style.visibility === "hidden" ? "visible" : "hidden";
+        }, blinkSpeed);
+      }
 
-function startBlinking() {
-    const textElement = document.getElementById('blinkingText');
-    blinkInterval = setInterval(() => {
-        textElement.style.visibility = textElement.style.visibility === 'hidden' ? 'visible' : 'hidden';
-    }, blinkSpeed);
-}
+      function toggleBlinking() {
+        // point to the text in <p> by ID = blinkingText
+        // textElement in reference to <P>
+        const textElement = document.getElementById("blinkingText");
+        // point to the button in <button> by ID = toggleButton
+        // button in reference to <button>
+        // if the isBlinking is true
+        // stop the current blink using clearinterval
+        // ID store in the blinkInterval
+        // set the visibility of the text to visible
+        // change the text of the button to "Start Blinking"
+        // set isBlinking to false
+        // if the isBlinking is false
+        // start new interval with update blinkspeed
+        // change the text of the button to "Stop Blinking"
+        // set isBlinking to true
+        const button = document.getElementById("toggleButton");
 
-function toggleBlinking() {
-    const textElement = document.getElementById('blinkingText');
-    const button = document.getElementById('toggleButton');
+        if (isBlinking) {
+          clearInterval(blinkInterval);
+          textElement.style.visibility = "visible";
+          button.textContent = "Start Blinking";
+          isBlinking = false;
+        } else {
+          startBlinking();
+          button.textContent = "Stop Blinking";
+          isBlinking = true;
+        }
+      }
 
-    if (isBlinking) {
-        clearInterval(blinkInterval);
-        textElement.style.visibility = 'visible';
-        button.textContent = 'Start Blinking';
-        isBlinking = false;
-    } else {
-        startBlinking();
-        button.textContent = 'Stop Blinking';
-        isBlinking = true;
-    }
-}
+      document
+        .getElementById("toggleButton")
+        .addEventListener("click", toggleBlinking);
+      document
+        .getElementById("speedRange")
+        .addEventListener("input", updateSpeed);
 
-document.getElementById('toggleButton').addEventListener('click', toggleBlinking);
-document.getElementById('speedRange').addEventListener('input', updateSpeed);
-
-updateSpeed(); // Set initial speed display
-</script>
-
-</body>
+      updateSpeed(); // Set initial speed display
+    </script>
+  </body>
 </html>
