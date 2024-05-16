@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinking Text</title>
+    <style>
+        #blinkingText {
+            font-size: 24px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<marquee behavior="" direction="">
+  <p id="blinkingText">This is a blinking text</p><br>
+</marquee>
+
+<button id="toggleButton">Start Blinking</button>
+<br>
+<label for="speedRange">Blink Speed:</label>
+<input type="range" id="speedRange" min="0" max="9" step="1" value="5">
+<span id="speedValue">500ms</span>
+
+<script>
+let isBlinking = false;
+let blinkInterval;
+let blinkSpeed = 500;
+
+const speedOptions = [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
+
+function updateSpeed() {
+    const speedRange = document.getElementById('speedRange');
+    blinkSpeed = speedOptions[speedRange.value];
+    document.getElementById('speedValue').textContent = blinkSpeed + 'ms';
+
+    if (isBlinking) {
+        clearInterval(blinkInterval);
+        startBlinking();
+    }
+}
+
+function startBlinking() {
+    const textElement = document.getElementById('blinkingText');
+    blinkInterval = setInterval(() => {
+        textElement.style.visibility = textElement.style.visibility === 'hidden' ? 'visible' : 'hidden';
+    }, blinkSpeed);
+}
+
+function toggleBlinking() {
+    const textElement = document.getElementById('blinkingText');
+    const button = document.getElementById('toggleButton');
+
+    if (isBlinking) {
+        clearInterval(blinkInterval);
+        textElement.style.visibility = 'visible';
+        button.textContent = 'Start Blinking';
+        isBlinking = false;
+    } else {
+        startBlinking();
+        button.textContent = 'Stop Blinking';
+        isBlinking = true;
+    }
+}
+
+document.getElementById('toggleButton').addEventListener('click', toggleBlinking);
+document.getElementById('speedRange').addEventListener('input', updateSpeed);
+
+updateSpeed(); // Set initial speed display
+</script>
+
+</body>
+</html>
