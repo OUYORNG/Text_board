@@ -83,25 +83,29 @@
         const textElement = document.getElementById("blinkingText");
         // point to the button in <button> by ID = toggleButton
         // button in reference to <button>
-        // if the isBlinking is true
-        // stop the current blink using clearinterval
-        // ID store in the blinkInterval
-        // set the visibility of the text to visible
-        // change the text of the button to "Start Blinking"
-        // set isBlinking to false
-        // if the isBlinking is false
-        // start new interval with update blinkspeed
-        // change the text of the button to "Stop Blinking"
-        // set isBlinking to true
+        
+        
+        
+        
         const button = document.getElementById("toggleButton");
 
         if (isBlinking) {
+          // if the isBlinking is true
+         // stop the current blink using clearinterval
           clearInterval(blinkInterval);
+          // ID store in the blinkInterval
+         // set the visibility of the text to visible
           textElement.style.visibility = "visible";
+          // change the text of the button to "Start Blinking"
+          // set isBlinking to false
           button.textContent = "Start Blinking";
           isBlinking = false;
         } else {
+          // if the isBlinking is false
+         // start new interval with update blinkspeed
           startBlinking();
+          // change the text of the button to "Stop Blinking"
+         // set isBlinking to true
           button.textContent = "Stop Blinking";
           isBlinking = true;
         }
