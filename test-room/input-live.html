@@ -16,20 +16,20 @@
     <div class="flex flex-col gap-4 bg-orange-500">
       <div class="bg-blue-500 flex justify-center items-center">
         <img
-          class="opacity-50 relative"
+          class="opacity-50 relative w-full"
           src="../images/display-texture.jpg"
           alt=""
         />
-        <div class="absolute text-white text-4xl font-bold w-full">
+        <div class="absolute text-white text-[20vw] font-bold w-full">
           <marquee class="marquee" behavior="scroll" direction="left"
-            ><div id="values">Welcome to textboard</div></marquee
+            ><div id="display-text">Welcome to textboard</div></marquee
           >
         </div>
       </div>
 
       <div class="input-group input-group-lg">
         <input
-          id="input"
+          id="input-text"
           type="text"
           class="form-control"
           aria-label="Sizing example input"
@@ -40,19 +40,11 @@
     </div>
 
     <script>
-      // select element input
-      const input = document.querySelector("input");
-
-      // select element output
-      const log = document.getElementById("values");
-
-      // event listener invoke when something change in input
-      input.addEventListener("input", updateValue);
-
-      // method
-      function updateValue(e) {
-        log.textContent = e.target.value;
-      }
+      const display_text = document.getElementById("display-text");
+      const input_text = document.getElementById("input-text");
+      input_text.addEventListener("keyup", () => {
+        display_text.textContent = input_text.value;
+      });
     </script>
   </body>
 </html>
