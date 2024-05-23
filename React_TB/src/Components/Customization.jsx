@@ -1,8 +1,23 @@
-
-
-
+import { SharedText } from "./SharedText"
+import { useContext } from "react"
 
 export default function Customization(){
+    const {direction,setDirection} = useContext(SharedText)
+    const {Speed,setSpeed} = useContext(SharedText)
+
+    const handleRight= ()=>{
+        setDirection(1)
+        console.log(direction);
+    }
+    const handleStop= ()=>{
+        setDirection(9)
+        console.log(direction);
+    }
+    const handleLeft= ()=>{
+        setDirection(0)
+        console.log(direction);
+    }
+
     return (
         <div class="ml-3 mr-3 rounded-md bg-[#F0F0F0] p-4">
         <div class="head font-bold text-2xl">Customization</div>     
@@ -15,11 +30,11 @@ export default function Customization(){
                     <div>Scroll Directions </div>
                 </div>     
                 <div class="right flex justify-center items-center gap-2 ">
-                    <button type="button" class="btn left btn-light"><svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
+                    <button onClick={handleLeft} type="button" class="btn left btn-light"><svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
                     </button>
-                    <button class="stop btn left btn-light"><svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7V17H17V7H7ZM6 5H18C18.5523 5 19 5.44772 19 6V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18V6C5 5.44772 5.44772 5 6 5Z"></path></svg>
+                    <button onClick={handleStop}  class="stop btn left btn-light"><svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7V17H17V7H7ZM6 5H18C18.5523 5 19 5.44772 19 6V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18V6C5 5.44772 5.44772 5 6 5Z"></path></svg>
                     </button>
-                    <button class="righ btn left btn-light"><svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
+                    <button onClick={handleRight} class="righ btn left btn-light"><svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
                     </button>
                 </div>            
             </div>
