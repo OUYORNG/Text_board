@@ -4,6 +4,8 @@ import { useContext } from "react"
 export default function Customization(){
     const {direction,setDirection} = useContext(SharedText)
     const {Speed,setSpeed} = useContext(SharedText)
+    const {Blink,setBlink} = useContext(SharedText)
+    const {BlinkSpeed,setBlinkSpeed} = useContext(SharedText)
 
     const handleRight= ()=>{
         setDirection(1)
@@ -17,6 +19,29 @@ export default function Customization(){
         setDirection(0)
         console.log(direction);
     }
+    const handleSpeed= ()=>{
+        var inputSpeed = parseInt(document.querySelector(".Speed").value) 
+        if ( 1<= inputSpeed <=20){
+            var n =  21-inputSpeed
+        }
+        setSpeed(n)
+        console.log(n);
+    }
+    const handleBlinkOn = ()=>{
+        setBlink(true)
+    }
+    const handleBlinkOff = ()=>{
+        setBlink(false)
+    }
+    const handleBlinkSpeed= ()=>{
+        var InputBlink = parseInt(document.querySelector(".InputBlink").value) 
+        if ( 1<= InputBlink <=20){
+            var n =  21- InputBlink
+        }
+        setBlinkSpeed(n)
+        console.log(n);
+    }
+    
 
     return (
         <div class="ml-3 mr-3 rounded-md bg-[#F0F0F0] p-4">
@@ -45,7 +70,7 @@ export default function Customization(){
                     <div>Scroll Speed</div>
                 </div>     
                 <div class="right flex justify-center items-center gap-2 ">
-                    <input class="w-[153px]" type="range" />
+                    <input onChange={handleSpeed} class="w-[153px] Speed" type="range" min="1" max="20" />
                 </div>            
             </div>
             {/* // Blink ON OFF  */}
@@ -55,8 +80,8 @@ export default function Customization(){
                     <div>Blink</div>
                 </div>     
                 <div class="right flex justify-center items-center gap-2  ">
-                    <button class="righ btn left btn-light ">ON</button>
-                    <button class="righ btn left btn-light ">OFF</button>
+                    <button onClick={handleBlinkOn} class="righ btn left btn-light ">ON</button>
+                    <button onClick={handleBlinkOff} class="righ btn left btn-light ">OFF</button>
                 </div>            
             </div>
             {/* // Blink Frequency */}
@@ -66,7 +91,7 @@ export default function Customization(){
                     <div>Blink Frequency</div>
                 </div>     
                 <div class="right flex justify-center items-center gap-2 ">
-                    <input class="w-[153px]" type="range" />
+                    <input onChange={handleBlinkSpeed} class="InputBlink w-[153px]" type="range" min="1" max="20" />
                 </div>                            
             </div>
         </div>
