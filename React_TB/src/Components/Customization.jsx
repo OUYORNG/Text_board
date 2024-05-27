@@ -2,6 +2,7 @@ import { SharedText } from "./SharedText"
 import { useContext } from "react"
 
 export default function Customization(){
+    const Defau = 7;
     const {direction,setDirection} = useContext(SharedText)
     const {Speed,setSpeed} = useContext(SharedText)
     const {Blink,setBlink} = useContext(SharedText)
@@ -35,14 +36,10 @@ export default function Customization(){
     }
     const handleBlinkSpeed= ()=>{
         var InputBlink = parseInt(document.querySelector(".InputBlink").value) 
-        if ( 1<= InputBlink <=20){
-            var n =  21- InputBlink
-        }
-        setBlinkSpeed(n)
+        var n = 1<= InputBlink <=20 ? 21-InputBlink:
         console.log(n);
+        setBlinkSpeed(n)
     }
-    
-
     return (
         <div class="ml-3 mr-3 rounded-md bg-[#F0F0F0] p-4">
         <div class="head font-bold text-2xl">Customization</div>     

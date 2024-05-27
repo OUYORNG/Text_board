@@ -1,7 +1,8 @@
 import styled, { keyframes } from 'styled-components';
+import css from 'styled-components'
+
 import { SharedText } from './SharedText';
 import { useContext } from 'react';
-
 
 const scrollLeft = keyframes`
   0% {
@@ -53,19 +54,22 @@ const blinkanimated = keyframes `
     }
   }
 `
-
 // animation: ${direction ? scrollLeft : scrollRight} 10s linear infinite;
+
 const MyComponent = () => {
     const {direction,setDirection} = useContext(SharedText)
     const {text,setText} = useContext(SharedText)
     const {Speed,setSpeed} = useContext(SharedText)
     const {Blink,setBlink} = useContext(SharedText)
     const {BlinkSpeed,setBlinkSpeed} = useContext(SharedText)
+    const {Size,setSize} = useContext(SharedText)
+    const {Color} = useContext(SharedText)
 
     const AnimatedComponent = styled.div`
-      animation: ${direction === 1 ? scrollLeft : direction === 0? scrollRight: Stop} ${Speed}s  linear infinite ,${Blink ? blinkanimated:"" } ${BlinkSpeed}s infinite;
-      font: 50px;
-      color: black;
+      animation: ${direction === 1 ? scrollLeft : direction === 0? scrollRight: Stop} ${Speed}s  linear infinite ,${Blink ? blinkanimated: "" } ${BlinkSpeed}s infinite;
+      font-family: Arial, sans-serif;
+      font-size: ${Size}px;
+      color: ${Color};
       width: 100%;
       height: 100%;
       margin: 0;
@@ -75,10 +79,8 @@ const MyComponent = () => {
       -webkit-transform: translateX(100%);
       transform: translateX(100%);
     `;
-    
-    return <div>
-      <AnimatedComponent>{text}</AnimatedComponent>
-  </div>
+    return <AnimatedComponent className=''>{text}</AnimatedComponent>
 };
+
 
 export default MyComponent;
