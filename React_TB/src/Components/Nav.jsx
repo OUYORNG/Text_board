@@ -14,7 +14,7 @@ export default function Nav(){
         <div class="Nav flex-grow flex justify-between items-center pl-8 pr-8 pt-2 pb-2 md:pl-4 md:pr-4 ">   
             <img class="w-[60px] h-[45px] rounded-sm" src=""/>  
             <div class="about md:gap-8 md:flex hidden">
-                <a  href="" class="Home hover:text-white text-inherit">HOME</a>
+                <a  href="" class="Home hover:text-white text-inherit">HOO  ME</a>
                 <a  href="" class="about hover:text-white text-inherit">ABOUT US</a>
                 <a  href="" class="contact hover:text-white text-inherit">CONTACTS</a>
             </div>
