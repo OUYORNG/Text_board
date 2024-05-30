@@ -6,7 +6,6 @@ import Nav from './Components/Nav.jsx'
 import Display from './Components/Display.jsx'
 import FontSetting from './Components/FontSetting.jsx'
 import { SharedText } from './Components/SharedText.jsx'
-import MyComponent from './Components/MyComponent.jsx'
 
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
   const [Color,setColor] = useState("")
   const [Bg,setBg] = useState("#F0F0F0")
   const [fullscreen,setFullScreen] = useState(false)
+  const [font,setFont] = useState("")
 
   return (
     <SharedText.Provider value={{
@@ -33,7 +33,8 @@ function App() {
       Size,setSize,
       Color,setColor,
       Bg,setBg,
-      fullscreen,setFullScreen
+      fullscreen,setFullScreen,
+      font,setFont
       }}>
 
       <div>

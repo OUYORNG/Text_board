@@ -4,15 +4,15 @@ import FontSelector from "./FontSelector";
 import fonts from './fonts.js'
 
 function createEntry(fontfamily){
-    return <select name="" id="">
-        <FontSelector name={fontfamily.name} value={fontfamily.url}/>
-        </select>
+    return <FontSelector name={fontfamily.name} value={fontfamily.name}/>
   }
 
 export default function FontSetting(){
     const {Size,setSize} = useContext(SharedText)
     const {setColor} = useContext(SharedText)
     const {setBg} = useContext(SharedText)
+    const {setFont} = useContext(SharedText)
+
     const increaseSize = ()=>{
         setSize(Size +2)
         console.log(Size);
@@ -31,6 +31,10 @@ export default function FontSetting(){
         setBg(BG);
         console.log(BG);
     }
+    const setFontFam= ()=>{
+        var font = document.querySelector(".fontOption").value
+        setFont(font)
+    }
 
     return(
         <div class="ml-3 rounded-md bg-[#F0F0F0] p-4 mr-3">
@@ -44,7 +48,9 @@ export default function FontSetting(){
                     <div>Font</div>
                 </div>     
                 <div class="right flex justify-center items-center gap-2 ">
+                    <select className='fontOption' onChange={setFontFam}  name="" id="">
                     {fonts.map(createEntry)} 
+                    </select>
                 </div>            
             </div>
             {/* <!-- Scroll Speed --> */}

@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import css from 'styled-components'
-
+import fonts from './fonts';
+import { useEffect } from 'react';
 import { SharedText } from './SharedText';
 import { useContext } from 'react';
 
@@ -54,20 +54,31 @@ const blinkanimated = keyframes `
     }
   }
 `
+
 // animation: ${direction ? scrollLeft : scrollRight} 10s linear infinite;
 
 const MyComponent = () => {
-    const {direction,setDirection} = useContext(SharedText)
-    const {text,setText} = useContext(SharedText)
-    const {Speed,setSpeed} = useContext(SharedText)
-    const {Blink,setBlink} = useContext(SharedText)
-    const {BlinkSpeed,setBlinkSpeed} = useContext(SharedText)
-    const {Size,setSize} = useContext(SharedText)
+    const {direction} = useContext(SharedText)
+    const {text} = useContext(SharedText)
+    const {Speed} = useContext(SharedText)
+    const {Blink} = useContext(SharedText)
+    const {BlinkSpeed} = useContext(SharedText)
+    const {Size} = useContext(SharedText)
     const {Color} = useContext(SharedText)
+    const {font} = useContext(SharedText)
+
+    useEffect(() => {
+      fonts.forEach(font => {
+        const link = document.createElement('link');
+        link.href = font.url;
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+      });
+    }, []);
 
     const AnimatedComponent = styled.div`
       animation: ${direction === 1 ? scrollLeft : direction === 0? scrollRight: Stop} ${Speed}s  linear infinite ,${Blink ? blinkanimated: "" } ${BlinkSpeed}s infinite;
-      font-family: Arial, sans-serif;
+      font-family: ${font};
       font-size: ${Size}px;
       color: ${Color};
       width: 100%;
@@ -79,7 +90,7 @@ const MyComponent = () => {
       -webkit-transform: translateX(100%);
       transform: translateX(100%);
     `;
-    return <AnimatedComponent className=''>{text}</AnimatedComponent>
+    return <AnimatedComponent className='flex justify-center items-center'>{text}</AnimatedComponent>
 };
 
 
