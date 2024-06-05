@@ -1,4 +1,3 @@
-import './css/left.css'
 import { useContext, useState } from "react"
 import { SharedText } from "./SharedText";
 import MyComponent from "./MyComponent";
@@ -40,9 +39,6 @@ import { useEffect } from 'react';
     // document.addEventListener("" ,() => {
     //     fullscreen ? !document.fullscreenElement ? componentRef.current.requestFullscreen() : document.exitFullscreen() : ""
     // });
-    const exitFS = () =>{
-
-    }
 
 
 return(
