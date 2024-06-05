@@ -6,6 +6,11 @@ import Nav from './Components/Nav.jsx'
 import Display from './Components/Display.jsx'
 import FontSetting from './Components/FontSetting.jsx'
 import { SharedText } from './Components/SharedText.jsx'
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import { Home, AboutUs, ErrorPage, Documents } from "./pages/index";
+
+
 
 
 function App() {
@@ -21,6 +26,27 @@ function App() {
   const [Bg,setBg] = useState("#F0F0F0")
   const [fullscreen,setFullScreen] = useState(false)
   const [font,setFont] = useState("")
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/Documents",
+          element: <Documents />,
+        },
+        {
+          path: "/AboutUs",
+          element: <AboutUs />,
+        },
+      ],
+    },
+  ]);
 
   return (
     <SharedText.Provider value={{
@@ -38,16 +64,7 @@ function App() {
       }}>
 
       <div>
-      <Nav/>
-      <Display/>
-      <div className="flex-col md:flex md:flex-row gap-2 flex ">
-        <div className="flex-grow">
-          <Customization />
-        </div>
-        <div className='flex-grow'>
-          <FontSetting />
-        </div>
-      </div>
+      <RouterProvider router={router} />
     </div>
     </SharedText.Provider>
   )
