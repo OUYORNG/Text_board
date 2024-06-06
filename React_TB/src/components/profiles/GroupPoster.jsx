@@ -1,6 +1,6 @@
 import React from "react";
 import Poster from "./Poster";
-import deepmind from "../../assets/deepmind.jpg";
+import deepmind from "../../assets/Tech.webp";
 import makaraImg from "../../assets/makara.jpg";
 import orngImg from "../../assets/orng.jpg";
 import kimtryImg from "../../assets/kimtry.jpg";
@@ -41,8 +41,18 @@ function GroupPoster() {
     },
   ];
 
+  
+
+
+
   return (
     <React.Fragment>
+      <div class="content content--canvas">
+				<h2 class="content__title">
+          
+
+        </h2>
+			</div>
       <div
         className="flex justify-center items-center m-3 p-3 rounded-md"
         style={{
