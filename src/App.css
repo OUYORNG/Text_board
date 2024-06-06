@@ -1,0 +1,57 @@
+/* .demo-1 {
+	--color-text: #86eae7;
+	--color-link: #fff;
+	--color-link-hover: #86eae7;
+	--color-title: #fff;
+}
+
+.demo-2 {
+	--color-text: #ff53ff;
+	--color-link: #3c48fa;
+	--color-link-hover: #fff;
+	--color-title: #fff;
+}
+
+.demo-3 {
+	--color-text: #1ed97c;
+	--color-link: #fff;
+	--color-link-hover: #fff;
+	--color-title: #fff;
+}
+
+.demo-4 {
+	--color-text: #f0ea42;
+	--color-link: #ce8c32;
+	--color-link-hover: #fff;
+	--color-title: #ce8c32;
+}
+
+.demo-5 {
+	--color-text: #5c5ee7;
+	--color-link: #0ab5e4;
+	--color-link-hover: #fff;
+	--color-title: #0ab5e4;
+}		 */
+
+.content {
+	display: flex;
+	/* flex-direction: column; */
+	/* width: 100vw; */
+	/* height: calc(100vh - 13rem); */
+	/* position: relative; */
+	/* justify-content: flex-start; */
+	/* align-items: center; */
+}
+
+.content_title {
+	/* position: absolute; */
+	/* top: 50%; */
+	/* left: 0; */
+	/* width: 100%; */
+	/* text-align: center; */
+	/* margin: -5.5vw 0 0 0; */
+	z-index: 100;
+	/* font-size: 10vw; */
+	color: var(--color-title);
+	/* line-height: 1; */
+}
