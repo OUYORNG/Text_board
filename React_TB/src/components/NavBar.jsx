@@ -24,6 +24,9 @@ function NavBar() {
         <NavLink className="hover:text-white  no-underline" to="/AboutUs">
           ABOUT US
         </NavLink>
+        <NavLink className="hover:text-white  no-underline" to="/Special">
+          SPECIAL
+        </NavLink>
       </div>
       <div>
         <button onClick={handleFullScreen} className="bg-white p-2 rounded-md">

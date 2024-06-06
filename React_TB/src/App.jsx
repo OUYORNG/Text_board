@@ -9,6 +9,7 @@ import { SharedText } from './Components/SharedText.jsx'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import { Home, AboutUs, ErrorPage, Documents } from "./pages/index";
+import Special from './Special.jsx'
 
 
 
@@ -64,6 +65,7 @@ function App() {
       }}>
 
       <div>
+      <a href={<Special/>}>Hel </a>
       <RouterProvider router={router} />
     </div>
     </SharedText.Provider>
