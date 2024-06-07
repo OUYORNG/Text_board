@@ -45,6 +45,10 @@ function App() {
           path: "/AboutUs",
           element: <AboutUs />,
         },
+        {
+          path: "/Special",
+          element: <Special />,
+        },
       ],
     },
   ]);

@@ -54,7 +54,7 @@ return(
                 <MyComponent></MyComponent>
             </div>
             <div class="input flex mt-2 rounded-md">
-                <input onChange={handle} class="Input flex-grow rounded-md p-4 bg-[#F0F0F0] text-xl" type="text" placeholder={Init}/>
+              
             </div>
         </div>
     )
